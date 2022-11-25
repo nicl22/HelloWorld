@@ -2,32 +2,24 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        String username = "food123";
-        String password = "pas148!";
-
+        //creating an object user
+        User user = new User();
         Scanner input = new Scanner(System.in);
-        System.out.println("user or admin enter u/a");
-        String choiceInput = input.next();
-
-
-
 
         //create a boolean operator and counter for number of inputs allowed
         Boolean loggedIn = false;
         int i=1;
-
-        while (loggedIn==false && i<=3) {
-
-
+        String usernameInput;
+        //do while loop that will ke
+        do{
             System.out.println("username : ");
-            //input for username
-            String usernameInput = input.next();
+             usernameInput = input.next();
             System.out.println("password: ");
             //input for password
             String passwordInput = input.next();
             //checking password and username input
-            if (usernameInput.equals(username)) {
-                if (passwordInput.equals(password)) {
+            if (usernameInput.equals(user.getUsername())) {
+                if (passwordInput.equals(user.getPassword())) {
                     System.out.println("Logged in");
                     loggedIn=true;
                 } else {
@@ -36,7 +28,8 @@ public class Program {
             } else {
                 System.out.println("Incorrect username/password");
             }
-            i++;
         }
+        while(loggedIn == false);
+
     }
 }
